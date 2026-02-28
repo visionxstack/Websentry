@@ -12,9 +12,7 @@
 ## Overview
 
 **WebSentry** is a lightweight, comprehensive web application vulnerability scanner designed for ethical security testing. It combines a robust Python backend for scanning logic with a responsive HTML/JS frontend for an intuitive user experience.
-
 </div>
-
 > **⚠️ Disclaimer**: This tool is for **EDUCATIONAL PURPOSES AND ETHICAL TESTING ONLY**. Use this tool only on systems you own or have explicit permission to test. The developers assume no liability for misuse.
 
 ## Features
