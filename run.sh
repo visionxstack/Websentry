@@ -6,7 +6,17 @@ echo
 
 # Start Python API backend in background
 echo "[1/2] Starting scanner.py API on port 8081..."
-python3 scanner.py &
+
+if command -v python3 >/dev/null 2>&1; then
+    PYTHON_CMD="python3"
+elif command -v python >/dev/null 2>&1; then
+    PYTHON_CMD="python"
+else
+    echo "Error: Python is not installed or not in PATH."
+    exit 1
+fi
+
+$PYTHON_CMD scanner.py &
 BACKEND_PID=$!
 
 # Small delay to let the backend start
