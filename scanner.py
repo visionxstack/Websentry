@@ -309,6 +309,22 @@ class WebRequestHandler(http.server.BaseHTTPRequestHandler):
             self._send_cors_headers()
             self.end_headers()
 
+    def do_GET(self):
+        """Handle health check or direct browser access."""
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self._send_cors_headers()
+            self.end_headers()
+            self.wfile.write(json.dumps({
+                "status": "online",
+                "message": "WebSentry API is running",
+                "endpoint": "/scan (POST)"
+            }).encode())
+        else:
+            self.send_response(404)
+            self.end_headers()
+
     def log_message(self, format, *args):
         """Custom log format."""
         print(f"[WebSentry API] {self.address_string()} - {format % args}")
